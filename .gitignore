@@ -1,0 +1,8 @@
+# Runtime and logs
+*.log
+*.cache
+__pycache__/
+
+# Illogical impulse runtime state
+.config/illogical-impulse/installed_listfile
+.config/illogical-impulse/installed_true
