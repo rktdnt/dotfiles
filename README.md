@@ -1,11 +1,14 @@
 # Dotfiles (ThinkPad X395 - Arch Linux)
 
-Personal dotfiles for Arch Linux powered by **Hyprland** and **Quickshell** (Material You / Android style quick panel). Includes full hardware integrations tailored for Lenovo ThinkPad X395 (fan curves, power profiles, battery conservation, and trackpad fixes).
+Personal dotfiles for Arch Linux based on [**end-4/dots-hyprland**](https://github.com/end-4/dots-hyprland) (*illogical-impulse*), customized with hardware integrations tailored for **Lenovo ThinkPad X395** (fan curves, 3-tier power profiles, battery conservation, and trackpad fixes).
+
+> 💡 **Looking for what was changed from upstream?** See [**`ADAPTATIONS.md`**](ADAPTATIONS.md) for a complete breakdown of new and modified files.
 
 ---
 
 ## Features
 
+* **Upstream Base:** Built on [end-4/dots-hyprland](https://github.com/end-4/dots-hyprland) (Quickshell / Material You).
 * **Window Manager:** [Hyprland](https://hyprland.org/) with smooth animations, custom keybinds, and tuned window rules.
 * **Shell & Widgets:** [Quickshell](https://quickshell.outfoxxed.me/) with Material You Android-style quick settings panel:
   * **Fan Control Toggle:** Real-time RPM readout with single-click cycling: `Auto (thinkfan)` ↔ `Full Speed (Level 7)` ↔ `Quiet (Level 1)`.
