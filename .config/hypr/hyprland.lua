@@ -43,12 +43,12 @@ end
 -- Shell overrides --
 require("hyprland.shellOverrides.main")
 
--- >>> MacShell (added by install.sh) >>>
--- Load the generated MacShell autostart and keybind module.
+-- >>> MacShell >>>
 require("macshell")
--- Liquid Glass: blur behind the shell surfaces
 hl.layer_rule({ name = "macdock",  match = { namespace = "macdock"  }, blur = true, ignore_alpha = 0.2,  no_anim = true })
 hl.layer_rule({ name = "macspot",  match = { namespace = "macspot"  }, blur = true, ignore_alpha = 0.05, no_anim = true })
 hl.layer_rule({ name = "macbarbg", match = { namespace = "macbarbg" }, blur = true, ignore_alpha = 0.05, no_anim = true })
 hl.layer_rule({ name = "macshot",  match = { namespace = "macshot"  }, no_anim = true })
+hl.layer_rule({ name = "macwindecor", match = { namespace = "macwindecor" }, no_anim = true })
 -- <<< MacShell <<<
+
