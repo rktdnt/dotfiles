@@ -49,6 +49,5 @@ hl.layer_rule({ name = "macdock",  match = { namespace = "macdock"  }, blur = tr
 hl.layer_rule({ name = "macspot",  match = { namespace = "macspot"  }, blur = true, ignore_alpha = 0.05, no_anim = true })
 hl.layer_rule({ name = "macbarbg", match = { namespace = "macbarbg" }, blur = true, ignore_alpha = 0.05, no_anim = true })
 hl.layer_rule({ name = "macshot",  match = { namespace = "macshot"  }, no_anim = true })
-hl.layer_rule({ name = "macwindecor", match = { namespace = "macwindecor" }, no_anim = true })
 -- <<< MacShell <<<
 

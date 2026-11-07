@@ -1,9 +1,0 @@
-{
-  "enabled": true,
-  "showTitle": true,
-  "radius": 12,
-  "excludeClasses": [
-    "org.quickshell",
-    "quickshell"
-  ]
-}

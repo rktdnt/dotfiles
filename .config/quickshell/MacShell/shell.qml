@@ -48,7 +48,6 @@ ShellRoot {
         // set by MacBar / MacDock (Binding elements) when their glass needs live data
         property bool barWantsGeo: false
         property bool dockWantsGeo: false
-        property bool decorWantsGeo: false
         property bool barWantsWallpaper: false
         property bool dockWantsWallpaper: false
         property bool widgetsWantWallpaper: false
@@ -241,7 +240,7 @@ ShellRoot {
         Timer {
             interval: sharedHub.geoHot ? 90 : 250
             repeat: true
-            running: (sharedHub.barWantsGeo || sharedHub.dockWantsGeo || sharedHub.decorWantsGeo) && !sharedHub.ipcOk
+            running: (sharedHub.barWantsGeo || sharedHub.dockWantsGeo) && !sharedHub.ipcOk
             triggeredOnStart: true
             onTriggered: if (!geoProc.running) geoProc.running = true
         }
@@ -308,7 +307,7 @@ ShellRoot {
             // fast (60 Hz) for 1.5 s after any window event, otherwise a relaxed 2.5 Hz check (idle CPU)
             interval: sharedHub.geoHot ? 16 : 400
             repeat: true
-            running: (sharedHub.barWantsGeo || sharedHub.dockWantsGeo || sharedHub.decorWantsGeo) && !sharedHub.ipcBroken
+            running: (sharedHub.barWantsGeo || sharedHub.dockWantsGeo) && !sharedHub.ipcBroken
             triggeredOnStart: true
             onTriggered: sharedHub.ipcPoll()
         }
@@ -372,7 +371,6 @@ ShellRoot {
     // The Settings toggle governs the app; a manual components.json override wins when present.
     ClockApp { id: clockApp; hub: sharedHub; appEnabled: clockApp.manualOverride ? clockApp.manualVal : macBar.clockAppEnabled }
     AboutApp { id: aboutApp; hub: sharedHub }
-    WindowDecor { id: winDecor; hub: sharedHub }
 
     Component.onCompleted: {
         sharedHub.bar = macBar;
@@ -424,12 +422,5 @@ ShellRoot {
     IpcHandler {
         target: "glass"
         function captures(on: bool): void { macDock.windowCapture = on; }
-    }
-    // qs -c MacShell ipc call windecor toggle | on | off
-    IpcHandler {
-        target: "windecor"
-        function toggle(): void { winDecor.enabled = !winDecor.enabled; }
-        function on(): void { winDecor.enabled = true; }
-        function off(): void { winDecor.enabled = false; }
     }
 }
