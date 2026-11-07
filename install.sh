@@ -94,7 +94,7 @@ deploy_configs() {
     info "Menyiapkan penyalinan konfigurasi pengguna..."
 
     mkdir -p "${HOME}/.config"
-    local TARGETS=(hypr quickshell illogical-impulse foot fuzzel matugen wlogout cava)
+    local TARGETS=(hypr quickshell illogical-impulse foot fuzzel matugen wlogout cava kitty fish)
     local NEED_BACKUP=false
 
     for t in "${TARGETS[@]}"; do
@@ -160,6 +160,19 @@ setup_thinkpad_system() {
         if command -v thinkfan >/dev/null 2>&1; then
             sudo systemctl enable --now thinkfan 2>/dev/null || true
             success "thinkfan.service diaktifkan."
+        fi
+
+        # 5. Greetd auto-login for fingerprint Hyprlock
+        if [ -f "${DOTFILES_DIR}/etc/greetd/cosmic-greeter.toml" ]; then
+            sudo mkdir -p /etc/greetd
+            sudo cp "${DOTFILES_DIR}/etc/greetd/cosmic-greeter.toml" /etc/greetd/cosmic-greeter.toml
+            success "Disalin /etc/greetd/cosmic-greeter.toml (autologin hyprlock)"
+        fi
+
+        # 6. Sleep hook for fprintd stability
+        if [ -f "${DOTFILES_DIR}/etc/systemd/system-sleep/fprintd-suspend.sh" ]; then
+            sudo install -Dm755 "${DOTFILES_DIR}/etc/systemd/system-sleep/fprintd-suspend.sh" /usr/lib/systemd/system-sleep/fprintd-suspend.sh
+            success "Disalin /usr/lib/systemd/system-sleep/fprintd-suspend.sh"
         fi
     else
         info "Konfigurasi hardware sistem dilewati."

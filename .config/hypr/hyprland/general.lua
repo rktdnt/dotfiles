@@ -8,18 +8,13 @@ hl.monitor({
 
 hl.gesture({
     fingers = 3,
-    direction = "swipe",
-    action = "move"
-})
-hl.gesture({
-    fingers = 3,
-    direction = "pinch",
-    action = "fullscreen"
+    direction = "horizontal",
+    action = "workspace"
 })
 hl.gesture({
     fingers = 4,
     direction = "horizontal",
-    action = "workspace"
+    action = "move"
 })
 hl.gesture({
     fingers = 4,
@@ -38,12 +33,13 @@ hl.gesture({
 
 hl.config({
     gestures = {
-        workspace_swipe_distance = 700,
-        workspace_swipe_cancel_ratio = 0.2,
-        workspace_swipe_min_speed_to_force = 5,
+        workspace_swipe_distance = 300,
+        workspace_swipe_cancel_ratio = 0.35,
+        workspace_swipe_min_speed_to_force = 30,
         workspace_swipe_direction_lock = true,
         workspace_swipe_direction_lock_threshold = 10,
-        workspace_swipe_create_new = true
+        workspace_swipe_create_new = true,
+        workspace_swipe_forever = true
     },
     general = {
         -- Gaps and border
@@ -151,6 +147,10 @@ hl.curve("stall", {
     type = "bezier",
     points = {{1, -0.1}, {0.7, 0.85}}
 })
+hl.curve("appleEase", {
+    type = "bezier",
+    points = {{0.25, 1}, {0.4, 1}}
+})
 -- Configs
 -- windows
 hl.animation({
@@ -225,8 +225,8 @@ hl.animation({
 hl.animation({
     leaf = "workspaces",
     enabled = true,
-    speed = 7,
-    bezier = "menu_decel",
+    speed = 4,
+    bezier = "appleEase",
     style = "slide"
 })
 -- specialWorkspace
@@ -270,7 +270,7 @@ hl.config({
             clickfinger_behavior = false,
             tap_to_click = true,
             tap_button_map = "lrm",
-            scroll_factor = 0.7
+            scroll_factor = 0.35
         }
     },
 
