@@ -1,6 +1,9 @@
 -- put former exec-once commands inside the func and former exec commands outside
 hl.on("hyprland.start", function ()
 
+    -- Plugins
+    hl.exec_cmd("hyprpm reload -n")
+
     -- Lockscreen on boot
     hl.exec_cmd("hyprlock --immediate-render")
 
