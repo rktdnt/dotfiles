@@ -20,14 +20,14 @@ hl.gesture({
     fingers = 4,
     direction = "up",
     action = function()
-        hl.dispatch(hl.dsp.global("quickshell:overviewWorkspacesToggle"))
+        hl.exec_cmd("qs -c MacShell ipc call spotlight toggle")
     end
 })
 hl.gesture({
     fingers = 4,
     direction = "down",
     action = function()
-        hl.dispatch(hl.dsp.global("quickshell:overviewWorkspacesToggle"))
+        hl.exec_cmd("qs -c MacShell ipc call controlcenter toggle")
     end
 })
 

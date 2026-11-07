@@ -94,7 +94,7 @@ deploy_configs() {
     info "Menyiapkan penyalinan konfigurasi pengguna..."
 
     mkdir -p "${HOME}/.config"
-    local TARGETS=(hypr quickshell illogical-impulse foot fuzzel matugen wlogout cava kitty fish)
+    local TARGETS=(hypr quickshell hypr-macshell foot fuzzel matugen wlogout cava kitty fish)
     local NEED_BACKUP=false
 
     for t in "${TARGETS[@]}"; do

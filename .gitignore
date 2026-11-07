@@ -3,6 +3,8 @@
 *.cache
 __pycache__/
 
-# Illogical impulse runtime state
-.config/illogical-impulse/installed_listfile
-.config/illogical-impulse/installed_true
+# MacShell state and cache
+*.qsb
+*.qslog
+.config/macshell/state.env
+.config/macdock/liquidglass.frag.qsb
